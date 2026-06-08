@@ -1,18 +1,8 @@
 # Sprint 01 — E-Commerce Data Pipeline
 
-## Introduction
+> ELT pipeline that analyzes 100k+ real e-commerce orders to uncover revenue trends and delivery performance across Brazil (2016–2018).
 
-Large e-commerce companies generate thousands of transactions daily, but raw data alone doesn't tell you where the business is winning or losing. This project solves the problem of **turning scattered, multi-source data into actionable business intelligence** through a fully automated data pipeline.
-
-The pipeline ingests 100,000+ real orders from the Brazilian marketplace Olist (2016–2018), combines them with public holiday data from a REST API, loads everything into a structured data warehouse, and produces 9 analytical reports covering revenue trends, delivery performance, and category rankings — all reproducible with a single command.
-
-**What I built:**
-- An **ELT pipeline** (Extract → Load → Transform) in Python with modular, testable components
-- **9 SQL analytical queries** covering revenue by month/year/state, top/bottom product categories, estimated vs. real delivery time, and order volume on holidays
-- **Pandas transformations** for cross-table joins and aggregations that complement the SQL layer
-- **Matplotlib/Seaborn visualizations** for the final business report in Jupyter
-
-**Key concepts applied:** ELT architecture, SQL CTEs and aggregations, Pandas merge/groupby, REST API consumption, SQLite + SQLAlchemy, unit testing with pytest, Black code formatting.
+**Languages & tools:** Python · SQL · Pandas · SQLite · SQLAlchemy · Matplotlib · Seaborn · Requests · pytest
 
 ---
 
