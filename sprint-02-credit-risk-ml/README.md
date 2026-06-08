@@ -1,5 +1,22 @@
-# Sprint project 02
-> Home Credit Default Risk
+# Sprint 02 — Credit Risk Prediction
+
+## Introduction
+
+Financial institutions face a critical challenge: approving loans to trustworthy clients while identifying those likely to default before the damage is done. This project solves the problem of **predicting credit default risk** using supervised machine learning on real-world loan application data.
+
+The dataset contains hundreds of features per applicant — income, employment history, loan amounts, and more — but raw financial data is messy: outliers, missing values, mixed categorical types, and vastly different numeric scales. Before any model can learn, the data must be carefully engineered.
+
+**What I built:**
+- A complete **preprocessing pipeline** ready to feed any scikit-learn classifier
+- **Outlier correction** for a known data anomaly in the `DAYS_EMPLOYED` column (365243 → NaN)
+- **Categorical encoding** with `OrdinalEncoder` for binary features and `OneHotEncoder` for multi-value features, applied correctly to prevent data leakage (fit only on train, transform on val/test)
+- **Missing value imputation** using median strategy via `SimpleImputer`
+- **Feature scaling** with `MinMaxScaler` to normalize all values to [0, 1]
+- Model evaluation using **AUC-ROC**, the standard metric for imbalanced binary classification
+
+**Key concepts applied:** supervised learning, feature engineering, sklearn preprocessing pipeline, data leakage prevention, binary classification, AUC-ROC evaluation metric.
+
+---
 
 ## The Business problem
 

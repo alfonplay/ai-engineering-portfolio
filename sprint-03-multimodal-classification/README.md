@@ -1,4 +1,23 @@
-# Best Buy Product Classification
+# Sprint 03 — Multimodal Product Classification
+
+## Introduction
+
+E-commerce platforms manage millions of products that need to be correctly categorized for search and navigation to work. Manual classification doesn't scale. This project solves the problem of **automatically classifying products into categories using both their images and text descriptions** — a multimodal AI approach that mirrors how modern recommendation and search systems work.
+
+Rather than training a neural network from scratch (which would require massive compute and data), the project applies **transfer learning**: extracting rich feature vectors (embeddings) from pre-trained state-of-the-art models, then training lightweight classifiers on top of those embeddings. This approach is both efficient and highly effective.
+
+**What I built:**
+- **Image embedding extraction** using `FoundationalCVModel` — a wrapper supporting ResNet50, ConvNextV2, ViT, and Swin Transformer loaded from TensorFlow/Keras and Hugging Face
+- **Text embedding extraction** using `HuggingFaceEmbeddings` — supporting MiniLM, BERT, RoBERTa, and DistilBERT sentence encoders
+- **Embedding fusion** pipeline that merges image and text vectors into a unified feature matrix
+- **Classic ML classifiers** (Random Forest, Logistic Regression) trained on the embeddings
+- **MLP classifier** with early fusion built in TensorFlow, supporting single-modality and multimodal inputs
+- **Embedding visualization** in 2D/3D using PCA and t-SNE with interactive Plotly charts
+- Achieved **≥85% accuracy and ≥80% F1-score** on the multimodal and text-only models
+
+**Key concepts applied:** transfer learning, image/text embeddings, multimodal fusion, dimensionality reduction (PCA, t-SNE), Random Forest, Logistic Regression, MLP, confusion matrix, ROC curve, Hugging Face Transformers.
+
+---
 
 This project focuses on classifying products from BestBuy.com into predefined categories based on the dataset provided. The main objective is to perform a product classification task. To do so, you'll have a list of products with their descriptions and images. In order to classify these products, you'll need to preprocess the data, extract features from images and text (embeddings), using pre-trained deep learning models, and then train machine learning models to predict the product category.
 
