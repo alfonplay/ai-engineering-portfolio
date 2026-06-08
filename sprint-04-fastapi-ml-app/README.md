@@ -1,27 +1,8 @@
 # Sprint 04 — Production ML Image Classification App
 
-## Introduction
+> Full production system that serves a ResNet50 image classifier (1,000+ categories) through a microservices architecture: FastAPI backend, Streamlit UI, Redis async job queue, and PostgreSQL — all containerized with Docker.
 
-Training a machine learning model is only half the job. The real challenge is **deploying it so real users can interact with it reliably, securely, and at scale**. This project solves exactly that: taking a pre-trained CNN and wrapping it in a production-grade application that any user can access through a web browser.
-
-The system classifies any uploaded image into one of **1,000+ ImageNet categories** using ResNet50 — but the interesting part is the architecture that makes it work in production. Instead of blocking the API while the model runs inference (which can take seconds), the system uses an **asynchronous message queue** pattern: the API accepts the image, enqueues the job in Redis, the ML service processes it independently, and the result is retrieved when ready. This is the same pattern used by large-scale ML platforms.
-
-**What I built:**
-
-| Service | Technology | Responsibility |
-|---------|-----------|----------------|
-| `api/` | FastAPI + JWT + PostgreSQL | REST endpoints, authentication, user management, feedback collection |
-| `model/` | TensorFlow ResNet50 + Redis | Loads the CNN, polls Redis queue, runs inference, stores results |
-| `ui/` | Streamlit | Web interface: login, image upload, classification, feedback |
-
-- **JWT authentication** — login flow with token generation and protected routes
-- **Async inference** via Redis job queue (`LPUSH` / `BRPOP` pattern)
-- **User and feedback management** with SQLAlchemy ORM and PostgreSQL
-- **Dockerized microservices** — all services run with a single `docker-compose up`
-- **Stress testing** with Locust to validate performance under concurrent load
-- **End-to-end integration tests** across the full pipeline
-
-**Key concepts applied:** microservices architecture, async ML inference, message queues (Redis), REST API design, JWT auth, ORM, Docker + docker-compose, integration testing, load testing.
+**Languages & tools:** Python · FastAPI · TensorFlow · Redis · Streamlit · Docker · docker-compose · SQLAlchemy · PostgreSQL · JWT · Locust · pytest
 
 ---
 
