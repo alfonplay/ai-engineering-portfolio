@@ -1,0 +1,42 @@
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+dist/
+build/
+.eggs/
+*.egg
+venv/
+.venv/
+env/
+
+# Jupyter
+.ipynb_checkpoints/
+
+# Datasets & large files
+*.db
+*.csv
+*.npy
+data/
+dataset/
+Embeddings/
+results/
+uploads/
+
+# Environment & secrets
+.env
+.env.*
+!.env.original
+
+# Testing cache
+.pytest_cache/
+.coverage
+htmlcov/
+
+# OS
+.DS_Store
+__MACOSX/
+Thumbs.db
+
+# Docker volumes
+*.log
